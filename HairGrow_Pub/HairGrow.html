@@ -62,8 +62,13 @@
     <main>
     </main>
 
+    <p><button onclick="toggleAfroCurls();" class="btn" id="isAfroCurls">Show Afro with curls</button>
+        <button onclick="toggleAfro();" class="btn" id="isAfro">Show Afro</button>
+        <button onclick="toggleStraight();" class="btn" id="isStraight">Show Straight</button>
+</p>    
+
     <p><button onclick="startLoop();" class="btn">Start animation</button>
-    <button onclick="abortTimer();" class="btn">Stop animation</button>
+        <button onclick="abortTimer();" class="btn">Stop animation</button>
 
         <script>
             function startTime() { }
@@ -75,7 +80,35 @@
                 }
 
             });
+            let showAfroCurls = true;
+            function toggleAfroCurls() {
+                showAfroCurls = !showAfroCurls;
+                if (showAfroCurls) {
+                    $('#isAfroCurls').text('Hide afro w/curls');
+                } else {
+                    $('#isAfroCurls').text('Show afro w/curls')
+                }
+            }
+            
+            let showAfro = true;
+            function toggleAfro() {
+                showAfro = !showAfro;
+                if (showAfro) {
+                    $('#isAfro').text('Hide afro');
+                } else {
+                    $('#isAfro').text('Show afro')
+                }
+            }
 
+            let showStraight = true;
+            function toggleStraight() {
+                showStraight = !showStraight;
+                if (showStraight) {
+                    $('#isStraight').text('Hide straight');
+                } else {
+                    $('#isStraight').text('Show straight')
+                }
+            }
 
             // set timeout
             var tid
@@ -83,11 +116,10 @@
                 tid = setInterval(mycode, 250);
             }
             function mycode() {
-                // do some stuff...
                 draw();
                 myAnimate();
             }
-            function abortTimer() { // to be called when you want to stop the timer
+            function abortTimer() {
                 clearInterval(tid);
             }
 

@@ -11,16 +11,26 @@ function draw() {
   background('#2196F3');
 
   //curly for afro
-  // drawAfroCurls();
+  if (showAfroCurls) {
+    drawAfroCurls();
+  }
 
-  //afro base
-  fill('black');
-  circle(250, 250, afroSize);
+  //afro 
+  if (showAfro) {
+    fill('black');
+    circle(250, 250, afroSize);
+  }
+  if (showAfroCurls) {
+    fill('black');
+    circle(250, 250, 380);
+  }
 
   //straight hair / hijab
-  fill('black');
-  noStroke();
-  rect(140, 250, 22, 0, hairHeight, 5);
+  if (showStraight) {
+    fill('black');
+    noStroke();
+    rect(140, 250, 220, hairHeight, 5);
+  }
 
 
 
@@ -123,7 +133,7 @@ function drawAfroCurls() {
   circle(290, 434, curls);
 }
 
-function myAnimate() { 
+function myAnimate() {
   curls = curls + 1;
   if (curls > 100) {
     curls = 30;
@@ -133,7 +143,9 @@ function myAnimate() {
   if (afroSize < 210) {
     afroSize = 380;
   }
+
   hairHeight = hairHeight + .5;
   if (hairHeight > 300) {
-     hairHeight = 160; }
+    hairHeight = 160;
+  }
 }
