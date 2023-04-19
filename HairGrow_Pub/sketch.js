@@ -15,8 +15,8 @@ function draw() {
   fill("black")
   arc(250, 255, 220, 170, 180, 0);
 
-  //eyebrows
-  noFill();
+  //eyebrows 
+  noFill(); 
   stroke('#4F2A0A');
   strokeWeight(3);
   arc(205, 320, 50, 40, 190, 345);
