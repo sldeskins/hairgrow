@@ -48,7 +48,9 @@
 <body onload="startTime()">
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="js/sketchpad.js"></script>
+    <script src="js/p5.min.js"></script>
+    <script src="sketch.js"></script>
+    
     <h1>Growing hair </h1>
     <p>
     <div id="txt"></div>
@@ -56,44 +58,21 @@
     <p> inspired by Jillian</p>
     <a>https://www.youtube.com/watch?v=mWZNOe_l8D0&list=PLl1ZwRWbrzdRTs8BoCTWioMLznxkRS1oB&index=1</a>
 
-    <canvas id="sketchpad"></canvas>
-
+ 
+    <main>
+    </main>
+  
     <p><button onclick="sketchpad.undo();" class="btn">Undo</button>
 
         <script>
-            function startTime() { }
-            function createCanvas(w, h) {
-                sketchpad = new Sketchpad({
-                    element: '#sketchpad',
-                    width: w,
-                    height: w,
-                })
-            }
-
-            function setup() {
-                c = document.getElementById("sketchpad");
-                ctx = c.getContext("2d");
-                createCanvas(500, 300);
-                //angleMode(DEGREES)
-            }
-            function draw() {
-                $('#sketchpad').background("#2196F3");
-            }
-
-            var sketchpad;
-            var c = document.getElementById("sketchpad");
-            var ctx = c.getContext("2d");
-
+            function startTime() { } 
             $(document).ready(function () {
                 $('#txt').text((new Date).toLocaleString('en-US', { timeStyle: 'short' }));
 
                 function startTime() {
 
                 }
-
-                setup()
-                draw()
-
+ 
             });
 
 
