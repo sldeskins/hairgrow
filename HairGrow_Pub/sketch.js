@@ -6,6 +6,65 @@ function setup() {
 function draw() {
   background('#2196F3');
 
+  var curls = 30;
+
+  //curly for afro
+  fill('black');
+  noStroke();
+  //left
+  circle(263, 65, curls);
+  circle(244, 70, curls);
+  circle(225, 65, curls);
+  circle(203, 74, curls);
+  circle(177, 77, curls);
+  circle(148, 91, curls);
+  circle(138, 107, curls);
+  circle(111, 123, curls);
+  circle(71, 198, curls);
+  circle(95, 142, curls);
+  circle(77, 175, curls);
+  circle(64, 275, curls);
+  circle(67, 302, curls);
+  circle(78, 322, curls);
+  circle(91, 345, curls);
+  circle(100, 370, curls);
+  circle(133, 401, curls);
+  circle(153, 416, curls);
+  circle(177, 424, curls);
+  circle(207, 433, curls);
+  circle(122, 383, curls);
+  circle(64, 288, curls);
+  circle(64, 245, curls);
+  circle(65, 223, curls);
+  circle(193, 433, curls);
+  circle(254, 438, curls);
+
+  //right
+  circle(285, 60, curls);
+  circle(309, 74, curls);
+  circle(332, 81, curls);
+  circle(353, 99, curls);
+  circle(378, 113, curls);
+  circle(398, 134, curls);
+  circle(415, 167, curls);
+  circle(429, 193, curls);
+  circle(426, 212, curls);
+  circle(435, 242, curls);
+  circle(438, 271, curls);
+  circle(429, 298, curls);
+  circle(418, 325, curls);
+  circle(406, 341, curls);
+  circle(398, 365, curls);
+  circle(378, 382, curls);
+  circle(365, 397, curls);
+  circle(343, 413, curls);
+  circle(319, 420, curls);
+  circle(290, 434, curls);
+
+  //afro base
+  fill('black');
+  circle(250, 250, 380);
+
   //face
   fill("#8d5524");
   noStroke();
@@ -16,7 +75,7 @@ function draw() {
   arc(250, 255, 220, 170, 180, 0);
 
   //eyebrows 
-  noFill(); 
+  noFill();
   stroke('#4F2A0A');
   strokeWeight(3);
   arc(205, 320, 50, 40, 190, 345);
@@ -49,5 +108,14 @@ function draw() {
   noStroke();
   arc(250, 410, 55, 20, 3, 0);
 
+
+}
+
+function mousePressed() {
+  console.log('I pressed the mouse');
+  curls = curls + 1;
+  if (curls > 100) {
+    curls = 30;
+  }
 
 }
