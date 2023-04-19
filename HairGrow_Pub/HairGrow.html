@@ -50,7 +50,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="js/p5.min.js"></script>
     <script src="sketch.js"></script>
-    
+
     <h1>Growing hair </h1>
     <p>
     <div id="txt"></div>
@@ -58,24 +58,38 @@
     <p> inspired by Jillian</p>
     <a>https://www.youtube.com/watch?v=mWZNOe_l8D0&list=PLl1ZwRWbrzdRTs8BoCTWioMLznxkRS1oB&index=1</a>
 
- 
+
     <main>
     </main>
-  
-    <p><button onclick="sketchpad.undo();" class="btn">Undo</button>
+
+    <p><button onclick="startLoop();" class="btn">Start animation</button>
+    <button onclick="abortTimer();" class="btn">Stop animation</button>
 
         <script>
-            function startTime() { } 
+            function startTime() { }
             $(document).ready(function () {
                 $('#txt').text((new Date).toLocaleString('en-US', { timeStyle: 'short' }));
 
                 function startTime() {
 
                 }
- 
+
             });
 
 
+            // set timeout
+            var tid
+            function startLoop() {
+                tid = setInterval(mycode, 250);
+            }
+            function mycode() {
+                // do some stuff...
+                draw();
+                myAnimate();
+            }
+            function abortTimer() { // to be called when you want to stop the timer
+                clearInterval(tid);
+            }
 
         </script>
 </body>

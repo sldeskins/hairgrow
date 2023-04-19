@@ -123,8 +123,7 @@ function drawAfroCurls() {
   circle(290, 434, curls);
 }
 
-function mousePressed() {
-  console.log('I pressed the mouse');
+function myAnimate() { 
   curls = curls + 1;
   if (curls > 100) {
     curls = 30;
@@ -134,7 +133,7 @@ function mousePressed() {
   if (afroSize < 210) {
     afroSize = 380;
   }
-  hairHeight = hairHeight = .5;
+  hairHeight = hairHeight + .5;
   if (hairHeight > 300) {
      hairHeight = 160; }
 }
