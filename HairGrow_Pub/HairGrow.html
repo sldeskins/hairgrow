@@ -52,9 +52,8 @@
     <script src="sketch.js"></script>
 
     <h1>Growing hair </h1>
-    <p>last changed
-    <div id="txt"></div>
-    </p>
+  
+    <div id="txt">last changed</div> 
 
     <p>
         <a a href="https://www.youtube.com/watch?v=mWZNOe_l8D0&list=PLl1ZwRWbrzdRTs8BoCTWioMLznxkRS1oB&index=1">
@@ -64,8 +63,8 @@
     <main>
     </main>
 
-    <p><button onclick="toggleAfroCurls();" class="btn" id="isAfroCurls">Show Afro with curls</button>
-        <button onclick="toggleAfro();" class="btn" id="isAfro">Hide Afro</button>
+    <p><button onclick="toggleAfroCurls();" class="btn" id="isAfroCurls">Hide Afro with curls</button>
+        <button onclick="toggleAfro();" class="btn" id="isAfro">Show Afro</button>
         <button onclick="toggleStraight();" class="btn" id="isStraight">Show Straight</button>
     </p>
 
@@ -79,7 +78,7 @@
 
             function startTime() { }
             $(document).ready(function () {
-                $('#txt').text((new Date).toLocaleString('en-US', { timeStyle: 'short' }));
+                $('#txt').text('last changed ' +(new Date).toLocaleString('en-US', { timeStyle: 'short' }));
 
             });
 
