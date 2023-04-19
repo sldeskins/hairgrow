@@ -52,47 +52,49 @@
     <script src="sketch.js"></script>
 
     <h1>Growing hair </h1>
-    <p>
+    <p>last changed
     <div id="txt"></div>
     </p>
-    <p> inspired by Jillian</p>
-    <a>https://www.youtube.com/watch?v=mWZNOe_l8D0&list=PLl1ZwRWbrzdRTs8BoCTWioMLznxkRS1oB&index=1</a>
 
+    <p>
+        <a a href="https://www.youtube.com/watch?v=mWZNOe_l8D0&list=PLl1ZwRWbrzdRTs8BoCTWioMLznxkRS1oB&index=1">
+            inspired by Jillian in Black Girls Code videos</a>
+    </p>
 
     <main>
     </main>
 
     <p><button onclick="toggleAfroCurls();" class="btn" id="isAfroCurls">Show Afro with curls</button>
-        <button onclick="toggleAfro();" class="btn" id="isAfro">Show Afro</button>
+        <button onclick="toggleAfro();" class="btn" id="isAfro">Hide Afro</button>
         <button onclick="toggleStraight();" class="btn" id="isStraight">Show Straight</button>
-</p>    
+    </p>
 
     <p><button onclick="startLoop();" class="btn">Start animation</button>
         <button onclick="abortTimer();" class="btn">Stop animation</button>
 
         <script>
+            let showAfroCurls = true;
+            let showAfro = false;
+            let showStraight = true;
+
             function startTime() { }
             $(document).ready(function () {
                 $('#txt').text((new Date).toLocaleString('en-US', { timeStyle: 'short' }));
 
-                function startTime() {
-
-                }
-
             });
-            let showAfroCurls = true;
+
             function toggleAfroCurls() {
-                showAfroCurls = !showAfroCurls;
+                showAfroCurls = !showAfroCurls; 
                 if (showAfroCurls) {
                     $('#isAfroCurls').text('Hide afro w/curls');
                 } else {
                     $('#isAfroCurls').text('Show afro w/curls')
                 }
             }
-            
-            let showAfro = true;
+
+
             function toggleAfro() {
-                showAfro = !showAfro;
+                showAfro = !showAfro; 
                 if (showAfro) {
                     $('#isAfro').text('Hide afro');
                 } else {
@@ -100,7 +102,7 @@
                 }
             }
 
-            let showStraight = true;
+
             function toggleStraight() {
                 showStraight = !showStraight;
                 if (showStraight) {
