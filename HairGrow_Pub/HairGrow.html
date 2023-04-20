@@ -36,6 +36,16 @@
             cursor: pointer;
         }
 
+        .btn.red {
+            background-color: #982d3f;
+            color: #fff;
+        }
+
+        .btn.brown {
+            background-color: #aa7837c5;
+            color: #fff;
+        }
+
         canvas {
             box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
             margin: 1rem auto;
@@ -61,23 +71,22 @@
     <main>
     </main>
 
-    <p><button onclick="toggleAfroCurls();" class="btn" id="isAfroCurls">Hide Afro with curls</button>
-        <button onclick="toggleAfro();" class="btn" id="isAfro">Show Afro</button>
-        <button onclick="toggleStraight();" class="btn" id="isStraight">Show Straight</button>
+    <p><button onclick="toggleAfroCurls();" class="btn " id="isAfroCurls">Hide Afro with curls</button>
+        <button onclick="toggleAfro();" class="btn " id="isAfro">Show Afro</button>
+        <button onclick="toggleStraight();" class="btn " id="isStraight">Show Straight</button>
     </p>
 
-    <p><button onclick="startLoop();" class="btn">Start hair animation</button>
-        <button onclick="abortTimer();" class="btn">Stop hair animation</button>
-        <button onclick="toggleMessage();" class="btn" id="isMessage">Hide Message</button>
+    <p><button onclick="startLoop();" class="btn red">Start hair animation</button>
+        <button onclick="abortTimer();" class="btn red" id="isMessage">Hide Message</button>
     </p>
     <p>
-        <button onclick="changeHairColor();" class="btn">Change Hair Color</button>
-        <button onclick="changeSkinTone();" class="btn">Change skin tone</button>
+        <button onclick="changeHairColor();" class="btn brown">Change Hair Color</button>
+        <button onclick="changeSkinTone();" class="btn brown">Change skin tone</button>
     </p>
 
     <p id="txt">last changed</p>
 
-   
+
     <script>
         let showAfroCurls = true;
         let showAfro = false;
