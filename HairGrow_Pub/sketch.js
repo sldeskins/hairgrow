@@ -1,5 +1,14 @@
+let circleY = 350;
+let heightY = 500;
+let ySpeed = 1;
+
+
+let circleX = 350;
+let heightX = 500;
+let xSpeed = 2;
+
 function setup() {
-  createCanvas(500, 500);
+  createCanvas(heightX, heightY);
   angleMode(DEGREES)
 }
 
@@ -7,8 +16,12 @@ let curls = 30;
 let afroSize = 380
 let hairHeight = 160;
 
+
+
 function draw() {
   background('#2196F3');
+
+  drawBall();
 
   //curly for afro
   if (showAfroCurls) {
@@ -147,5 +160,24 @@ function myAnimate() {
   hairHeight = hairHeight + .5;
   if (hairHeight > 300) {
     hairHeight = 160;
+  }
+
+
+}
+
+
+function drawBall() {
+  //ball
+  fill('yellow');
+  circle(circleX, circleY, 100);
+
+  circleY = circleY + ySpeed;
+  if (circleY < 0 || circleY > heightY) {
+    ySpeed = ySpeed * -1;
+  }
+
+  circleX = circleX + xSpeed;
+  if (circleX < 0 || circleX > heightX) {
+    xSpeed = xSpeed * -1;
   }
 }
