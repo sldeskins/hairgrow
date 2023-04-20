@@ -26,7 +26,9 @@ let hairHeight = 160;
 function draw() {
   background('#2196F3');
 
-  drawBall();
+  if (showMessage) {
+    drawBall();
+  }
 
   //curly for afro
   if (showAfroCurls) {

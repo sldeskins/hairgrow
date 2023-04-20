@@ -52,8 +52,8 @@
     <script src="sketch.js"></script>
 
     <h1>Growing hair </h1>
-  
-    <div id="txt">last changed</div> 
+
+    <div id="txt">last changed</div>
 
     <p>
         <a a href="https://www.youtube.com/watch?v=mWZNOe_l8D0&list=PLl1ZwRWbrzdRTs8BoCTWioMLznxkRS1oB&index=1">
@@ -68,63 +68,75 @@
         <button onclick="toggleStraight();" class="btn" id="isStraight">Show Straight</button>
     </p>
 
-    <p><button onclick="startLoop();" class="btn">Start animation</button>
-        <button onclick="abortTimer();" class="btn">Stop animation</button>
+    <p><button onclick="startLoop();" class="btn">Start hair animation</button>
+        <button onclick="abortTimer();" class="btn">Stop hair animation</button>
+        <button onclick="toggleMessage();" class="btn" id="isMessage">Hide Message</button>
+    </p>
 
-        <script>
-            let showAfroCurls = true;
-            let showAfro = false;
-            let showStraight = true;
+    <script>
+        let showAfroCurls = true;
+        let showAfro = false;
+        let showStraight = true;
+        let showMessage = true;
 
-            function startTime() { }
-            $(document).ready(function () {
-                $('#txt').text('last changed ' +(new Date).toLocaleString('en-US', { timeStyle: 'short' }));
+        function startTime() { }
+        $(document).ready(function () {
+            $('#txt').text('last changed ' + (new Date).toLocaleString('en-US', { timeStyle: 'short' }));
 
-            });
-
-            function toggleAfroCurls() {
-                showAfroCurls = !showAfroCurls; 
-                if (showAfroCurls) {
-                    $('#isAfroCurls').text('Hide afro w/curls');
-                } else {
-                    $('#isAfroCurls').text('Show afro w/curls')
-                }
+        });
+        function toggleMessage() {
+            showMessage = !showMessage;
+            if (showMessage) {
+                $('#isMessage').text('Hide message');
+            } else {
+                $('#isMessage').text('Show message')
             }
+        }
 
 
-            function toggleAfro() {
-                showAfro = !showAfro; 
-                if (showAfro) {
-                    $('#isAfro').text('Hide afro');
-                } else {
-                    $('#isAfro').text('Show afro')
-                }
+        function toggleAfroCurls() {
+            showAfroCurls = !showAfroCurls;
+            if (showAfroCurls) {
+                $('#isAfroCurls').text('Hide afro w/curls');
+            } else {
+                $('#isAfroCurls').text('Show afro w/curls')
             }
+        }
 
 
-            function toggleStraight() {
-                showStraight = !showStraight;
-                if (showStraight) {
-                    $('#isStraight').text('Hide straight');
-                } else {
-                    $('#isStraight').text('Show straight')
-                }
+        function toggleAfro() {
+            showAfro = !showAfro;
+            if (showAfro) {
+                $('#isAfro').text('Hide afro');
+            } else {
+                $('#isAfro').text('Show afro')
             }
+        }
 
-            // set timeout
-            var tid
-            function startLoop() {
-                tid = setInterval(mycode, 250);
-            }
-            function mycode() {
-                draw();
-                myAnimate();
-            }
-            function abortTimer() {
-                clearInterval(tid);
-            }
 
-        </script>
+        function toggleStraight() {
+            showStraight = !showStraight;
+            if (showStraight) {
+                $('#isStraight').text('Hide straight');
+            } else {
+                $('#isStraight').text('Show straight')
+            }
+        }
+
+        // set timeout
+        var tid
+        function startLoop() {
+            tid = setInterval(mycode, 250);
+        }
+        function mycode() {
+            draw();
+            myAnimate();
+        }
+        function abortTimer() {
+            clearInterval(tid);
+        }
+
+    </script>
 </body>
 
 </html>
