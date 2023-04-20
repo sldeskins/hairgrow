@@ -53,8 +53,6 @@
 
     <h1>Growing hair </h1>
 
-    <div id="txt">last changed</div>
-
     <p>
         <a a href="https://www.youtube.com/watch?v=mWZNOe_l8D0&list=PLl1ZwRWbrzdRTs8BoCTWioMLznxkRS1oB&index=1">
             inspired by Jiliane in Black Girls Code videos</a>
@@ -77,7 +75,9 @@
         <button onclick="changeSkinTone();" class="btn">Change skin tone</button>
     </p>
 
+    <p id="txt">last changed</p>
 
+   
     <script>
         let showAfroCurls = true;
         let showAfro = false;
@@ -86,7 +86,7 @@
 
         function startTime() { }
         $(document).ready(function () {
-            $('#txt').text('last changed ' + (new Date).toLocaleString('en-US', { timeStyle: 'short' }));
+            $('#txt').text(' last changed 2023-04-19  current time' + (new Date).toLocaleString('en-US', { timeStyle: 'short' }));
 
         });
         function toggleMessage() {
