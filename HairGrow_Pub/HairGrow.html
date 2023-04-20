@@ -77,8 +77,10 @@
     </p>
 
     <p><button onclick="startLoop();" class="btn red">Start hair animation</button>
-        <button onclick="abortTimer();" class="btn red" id="isMessage">Hide Message</button>
+        <button onclick="abortTimer();" class="btn red">Stop hair animation</button>
+        <button onclick="toggleMessage();" class="btn red" id="isMessage">Hide Message</button>
     </p>
+
     <p>
         <button onclick="changeHairColor();" class="btn brown">Change Hair Color</button>
         <button onclick="changeSkinTone();" class="btn brown">Change skin tone</button>
@@ -88,6 +90,7 @@
 
 
     <script>
+        let lastChangeDateText ='last changed 2023-04-20'
         let showAfroCurls = true;
         let showAfro = false;
         let showStraight = true;
@@ -95,7 +98,7 @@
 
         function startTime() { }
         $(document).ready(function () {
-            $('#txt').text(' last changed 2023-04-19  current time' + (new Date).toLocaleString('en-US', { timeStyle: 'short' }));
+            $('#txt').text(lastChangeDateText+'  current time' + (new Date).toLocaleString('en-US', { timeStyle: 'short' }));
 
         });
         function toggleMessage() {
@@ -152,5 +155,5 @@
 
     </script>
 </body>
-
+<footer> &#169;2023 sldeskins@gmail.com</footer>
 </html>
