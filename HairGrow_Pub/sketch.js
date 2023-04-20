@@ -3,6 +3,11 @@ let heightY = 500;
 let ySpeed = 1;
 
 
+let heightY_offset = 20;
+let heightX_offset = 130;
+let message = 'Hair love!!'
+
+
 let circleX = 350;
 let heightX = 500;
 let xSpeed = 2;
@@ -168,16 +173,22 @@ function myAnimate() {
 
 function drawBall() {
   //ball
-  fill('yellow');
-  circle(circleX, circleY, 100);
+  //fill('yellow');
+  //circle(circleX, circleY, 100);
+
+  //moving message
+  fill('white');
+  textSize(32);
+  text(message, circleX, circleY);
+
 
   circleY = circleY + ySpeed;
-  if (circleY < 0 || circleY > heightY) {
+  if ((circleY - heightY_offset) < 0 || circleY > heightY) {
     ySpeed = ySpeed * -1;
   }
 
   circleX = circleX + xSpeed;
-  if (circleX < 0 || circleX > heightX) {
+  if (circleX < 0 || circleX > (heightX - heightX_offset)) {
     xSpeed = xSpeed * -1;
   }
 }
