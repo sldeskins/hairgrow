@@ -2,15 +2,25 @@ let circleY = 350;
 let heightY = 500;
 let ySpeed = 1;
 
-
 let heightY_offset = 20;
 let heightX_offset = 130;
 let message = 'Hair love!!'
 
-
 let circleX = 350;
 let heightX = 500;
 let xSpeed = 2;
+
+let skinToneCounter = 0;
+let skinTones = ['#8d5524'
+  , '#c68642'
+  , '#e0ac69'
+  , '#f1c27d'
+  , '#ffdbac']
+
+let hairColorCounter = 0;
+let hairColors = ['black'
+  , '#a01900'
+  , 'white']
 
 function setup() {
   createCanvas(heightX, heightY);
@@ -25,6 +35,8 @@ let hairHeight = 160;
 
 function draw() {
   background('#2196F3');
+  skinColor = skinTones[skinToneCounter];
+  hairColor = hairColors[hairColorCounter];
 
   if (showMessage) {
     drawBall();
@@ -37,17 +49,17 @@ function draw() {
 
   //afro 
   if (showAfro) {
-    fill('black');
+    fill(hairColor);
     circle(250, 250, afroSize);
   }
   if (showAfroCurls) {
-    fill('black');
+    fill(hairColor);
     circle(250, 250, 380);
   }
 
   //straight hair / hijab
   if (showStraight) {
-    fill('black');
+    fill(hairColor);
     noStroke();
     rect(140, 250, 220, hairHeight, 5);
   }
@@ -55,12 +67,12 @@ function draw() {
 
 
   //face
-  fill("#8d5524");
+  fill(skinColor);
   noStroke();
   ellipse(250, 310, 195, 280);
 
   //hairline
-  fill("black")
+  fill(hairColor)
   arc(250, 255, 220, 170, 180, 0);
 
   //eyebrows 
@@ -71,7 +83,7 @@ function draw() {
   arc(300, 320, 50, 40, 190, 345);
 
   //ears
-  fill("#8d5524");
+  fill(skinColor);
   noStroke();
   arc(350, 320, 30, 40, 260, 110, OPEN);
   arc(150, 320, 30, 40, 70, 280, OPEN);
@@ -100,7 +112,7 @@ function draw() {
 
 }
 function drawAfroCurls() {
-  fill('black');
+  fill(hairColor);
   noStroke();
   //left
   circle(263, 65, curls);
@@ -193,4 +205,18 @@ function drawBall() {
   if (circleX < 0 || circleX > (heightX - heightX_offset)) {
     xSpeed = xSpeed * -1;
   }
+}
+
+function changeHairColor() {
+  hairColorCounter = hairColorCounter + 1;
+  if (hairColorCounter >= hairColors.length) {
+    hairColorCounter = 0;
+  }
+}
+function changeSkinTone() {
+  skinToneCounter = skinToneCounter + 1;
+  if (skinToneCounter >= skinTones.length) {
+    skinToneCounter = 0;
+  }
+
 }
