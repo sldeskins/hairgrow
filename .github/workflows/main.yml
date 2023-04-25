@@ -1,32 +1,55 @@
-name: Blob storage HairGrow Staticwebsite CI
+name: Blob storage HairGrow Staticwebsite CI/CD
 
 on:
-    push:
-        branches: [ main ]
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+    branches:
+      - main
 
 jobs:
-  build:
+  build_and_deploy_job:
+    #if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
+    if: (github.event_name == 'pull_request' && github.event.action != 'closed')
     runs-on: ubuntu-latest
+    name: Build and Deploy Job
     steps:
-    - uses: actions/checkout@v3
-    - uses: azure/login@v1
-      with:
+      - uses: actions/checkout@v3
+        with:
+          submodules: true
+      - uses: azure/login@v1
+        with:
           creds: ${{ secrets.AZURE_CREDENTIALS_HAIRGROWSTATIC }}
-          
-
-    - name: Upload to blob storage
-      uses: azure/CLI@v1
-      with:
-        inlineScript: |
+     
+      - name: Upload to blob storage
+        id: builddeploy
+        uses: Azure/hairgrowstatic@v1
+        with:
+           inlineScript: |
             az storage blob upload-batch --account-name hairgrowstatic --auth-mode key -d '$web' -s .
 #    - name: Purge CDN endpoint
 #      uses: azure/CLI@v1
 #      with:
 #        inlineScript: |
 #           az cdn endpoint purge --content-paths  "/*" --profile-name "CDN_PROFILE_NAME" --name "CDN_ENDPOINT" --resource-group "RESOURCE_GROUP"
-
+ 
   # Azure logout
-    - name: logout
-      run: |
+      - name: logout
+        run: |
             az logout
-      if: always()
+        if: always()     
+
+
+  close_pull_request_job:
+    if: github.event_name == 'pull_request' && github.event.action == 'closed'
+    runs-on: ubuntu-latest
+    name: Close Pull Request Job
+    steps:
+      - name: Close Pull Request
+        id: closepullrequest
+        uses: Azure/hairgrowstatic@v1
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_CREDENTIALS_HAIRGROWSTATIC }}
+          action: "close"
